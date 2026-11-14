@@ -1,0 +1,10 @@
+{
+  "name": "sys-antinag",
+  "tid": "420000BADBEE0000",
+  "requires_reboot": false,
+  "version": "@VERSION@",
+  "author": "SciLor",
+  "url": "https://github.com/SciLor/sys-antinag",
+  "license": "GPL-2.0-only",
+  "description": "Blocks the airplane-mode (flight mode) popup in games"
+}

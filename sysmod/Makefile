@@ -37,6 +37,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 #   of a homebrew executable (.nro). This is intended to be used for sysmodules.
 #   NACP building is skipped as well.
 #---------------------------------------------------------------------------------
+VERSION ?= dev
 TARGET		:=	sys-antinag
 BUILD		:=	build
 SOURCES		:=	src
@@ -169,7 +170,7 @@ $(BUILD):
 	@mkdir -p out/atmosphere/contents/420000BADBEE0000/flags
 	@touch out/atmosphere/contents/420000BADBEE0000/flags/boot2.flag
 	@cp $(CURDIR)/$(TARGET).nsp out/atmosphere/contents/420000BADBEE0000/exefs.nsp
-	@cp $(CURDIR)/toolbox.json out/atmosphere/contents/420000BADBEE0000/toolbox.json
+	@sed 's/@VERSION@/$(VERSION)/' $(CURDIR)/toolbox.json.in > out/atmosphere/contents/420000BADBEE0000/toolbox.json
 
 #---------------------------------------------------------------------------------
 clean:

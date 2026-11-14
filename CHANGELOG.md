@@ -7,6 +7,10 @@ for that version is used as the release notes.
 
 ## [Unreleased]
 
+### Added
+- `toolbox.json` in the sysmodule folder now carries the version (from the git tag), author, repository URL and license,
+  so the version is visible in the release files and in sysmodule-manager overlays that read it.
+
 ## [0.1.0] - 2026-11-14
 
 First release.
