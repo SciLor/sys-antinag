@@ -7,9 +7,15 @@ for that version is used as the release notes.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-14
+
 ### Added
 - `toolbox.json` in the sysmodule folder now carries the version (from the git tag), author, repository URL and license,
   so the version is visible in the release files and in sysmodule-manager overlays that read it.
+
+### Changed
+- README: screenshots cropped to the popup and the overlay panel, with readable sizes.
+- Store package (`hbas/`): wide banner, updated to 0.1.1.
 
 ## [0.1.0] - 2026-11-14
 
