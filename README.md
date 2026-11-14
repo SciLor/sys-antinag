@@ -7,9 +7,11 @@ is in flight mode (airplane mode) — for example when you play offline on purpo
 
 Only that one popup is blocked. Every other network or error dialog still works as usual.
 
-| The popup this removes | The overlay |
-| :---: | :---: |
-| <img src="docs/nagscreen.jpg" alt="Nag screen: Please turn flight mode off" width="420"> | <img src="docs/overlay.jpg" alt="SciLor's Antinag overlay" width="420"> |
+<p align="center">
+  <img src="docs/nagscreen.jpg" alt="The popup this removes: Please turn flight mode off" height="260">
+  &nbsp;&nbsp;
+  <img src="docs/overlay.jpg" alt="SciLor's Antinag overlay" height="260">
+</p>
 
 ## Features
 
