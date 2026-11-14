@@ -1,0 +1,13 @@
+build/
+out/
+*.elf
+*.nso
+*.nsp
+*.nro
+*.ovl
+*.nacp
+*.npdm
+*.lst
+*.map
+*.zip
+.claude/settings.local.json

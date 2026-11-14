@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SciLor's Antinag - icon (256x256). Everything is plain shapes (no fonts), so it renders the same everywhere.
+  Palette: orange #FF9A1F / #F06A00, honey #FFB33A, dark #0E141B / #0B1118, wing #BFE8FF.
+  Render:  rsvg-convert -w 256 -h 256 docs/icon.svg -o docs/icon.png
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22344A"/>
+      <stop offset="1" stop-color="#0B1118"/>
+    </linearGradient>
+    <linearGradient id="honey" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFB33A"/>
+      <stop offset="1" stop-color="#F06A00"/>
+    </linearGradient>
+    <!-- same gradient in tile coordinates, for the prohibition sign -->
+    <linearGradient id="sign" gradientUnits="userSpaceOnUse" x1="0" y1="14" x2="0" y2="242">
+      <stop offset="0" stop-color="#FFA52E"/>
+      <stop offset="1" stop-color="#F06A00"/>
+    </linearGradient>
+    <clipPath id="beeBody"><ellipse cx="0" cy="0" rx="23" ry="15"/></clipPath>
+  </defs>
+
+  <!-- background tile -->
+  <rect x="6" y="6" width="244" height="244" rx="48" fill="url(#bg)"/>
+  <rect x="6" y="6" width="244" height="244" rx="48" fill="none" stroke="#FF9A1F" stroke-opacity="0.35" stroke-width="3"/>
+
+  <!-- prohibition sign: ring + slash (top-left to bottom-right), behind the logo -->
+  <!-- (opacity on the group, not on the strokes, so the slash/ring overlap stays uniform) -->
+  <g fill="none" stroke="url(#sign)" stroke-width="21" opacity="0.62">
+    <circle cx="128" cy="128" r="102"/>
+    <line x1="55.9" y1="55.9" x2="200.1" y2="200.1" stroke-linecap="butt"/>
+  </g>
+
+  <!-- the logo: big "AN" + bee, scaled to sit inside the ring -->
+  <g transform="translate(128 128) scale(0.76) translate(-128 -126)">
+    <g transform="translate(128 148) scale(0.80) translate(-128 -150)" fill="none" stroke-linejoin="miter" stroke-miterlimit="6">
+      <!-- dark outline so the letters stay readable where the slash runs behind them -->
+      <g stroke="#0E141B" stroke-width="39" stroke-linejoin="miter" stroke-linecap="butt">
+        <polyline points="14,214 61,96 108,214"/>
+        <polyline points="150,214 150,96 244,214 244,96"/>
+      </g>
+      <!-- A, N -->
+      <g stroke="url(#honey)" stroke-width="27" stroke-linecap="butt">
+        <polyline points="14,214 61,96 108,214"/>
+        <polyline points="150,214 150,96 244,214 244,96"/>
+      </g>
+    </g>
+
+    <!-- the bee, flying above the letters -->
+    <g transform="translate(176 56) rotate(-10) scale(1.15)">
+      <path d="M-62 14 C-52 4 -46 20 -36 10" fill="none" stroke="#FF9A1F" stroke-opacity="0.55" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 6"/>
+      <ellipse cx="-4" cy="-17" rx="12" ry="19" transform="rotate(-24 -4 -17)" fill="#BFE8FF" fill-opacity="0.85" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="1.5"/>
+      <ellipse cx="9" cy="-15" rx="10" ry="16" transform="rotate(14 9 -15)" fill="#BFE8FF" fill-opacity="0.7" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="1.5"/>
+      <path d="M22 -3 L33 0 L22 3 Z" fill="#0E141B"/>
+      <ellipse cx="0" cy="0" rx="23" ry="15" fill="url(#honey)"/>
+      <g clip-path="url(#beeBody)" fill="#0E141B">
+        <rect x="-9" y="-16" width="7" height="32"/>
+        <rect x="4"  y="-16" width="7" height="32"/>
+      </g>
+      <ellipse cx="0" cy="0" rx="23" ry="15" fill="none" stroke="#0E141B" stroke-width="2"/>
+      <circle cx="-24" cy="-1" r="10" fill="#0E141B"/>
+      <circle cx="-27" cy="-4" r="3.2" fill="#FFFFFF"/>
+      <circle cx="-27.8" cy="-4" r="1.4" fill="#0E141B"/>
+      <path d="M-27 4 Q-24 7 -21 4" fill="none" stroke="#FF9A1F" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M-29 -9 Q-34 -20 -40 -20 M-23 -10 Q-24 -22 -18 -25" fill="none" stroke="#0E141B" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="-40" cy="-20" r="2.2" fill="#0E141B"/>
+      <circle cx="-18" cy="-25" r="2.2" fill="#0E141B"/>
+    </g>
+  </g>
+</svg>
