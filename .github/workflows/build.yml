@@ -26,8 +26,10 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           apt-get update && apt-get install -y --no-install-recommends zip build-essential
           # the image's libnx can be older than libnx 4.12, which libstratosphere-free sysmodule + overlay still want
-          dkp-pacman -Syu --noconfirm
-          dkp-pacman -S --noconfirm --needed libnx switch-curl switch-zlib switch-mbedtls
+          # pkg.devkitpro.org answers 403 now and then; retry instead of failing the build
+          retry() { for i in 1 2 3 4; do "$@" && return 0; echo "attempt $i failed, retrying"; sleep $((i * 20)); done; return 1; }
+          retry dkp-pacman -Syu --noconfirm
+          retry dkp-pacman -S --noconfirm --needed libnx switch-curl switch-zlib switch-mbedtls
 
       - name: Unit tests (patch logic, with sanitizers)
         run: make test
