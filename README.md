@@ -127,7 +127,8 @@ Debug mode lets the module read and write another process's memory on request â€
 * Pushing a tag `vX.Y.Z` makes GitHub Actions build and publish `sys-antinag.zip`; the matching section of [CHANGELOG.md](CHANGELOG.md) becomes the release notes.
 * `hbas/sys-antinag/` holds the package description (`pkgbuild.json`, icon, banner) for the
   [Homebrew App Store](https://hb-app.store/submit-or-request). Update `version`, `changelog` and the zip URL there for each release,
-  then open a pull request against [switch-hbas-repo](https://github.com/fortheusers/switch-hbas-repo) or use the form at submit.fortheusers.org.
+  then run `tools/submit-to-store.sh` (forks `switch-hbas-repo`, adds the package and opens the pull request; `--dry-run` tests it without sending anything)
+  or use the form at submit.fortheusers.org.
 * `docs/icon.svg` is the editable icon (`rsvg-convert -w 256 -h 256 docs/icon.svg -o docs/icon.png`).
 
 ## License
